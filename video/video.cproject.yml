@@ -1,0 +1,24 @@
+# A project translates into one executable or library.
+project:
+  output:
+    base-name: $Project$
+    type:
+      - elf
+      - bin
+
+  connections:
+    - connect: Video
+      consumes:
+        - STDIN
+        - STDOUT
+        - STDERR
+
+  groups:
+    - group: Source Files
+      files:
+        - file: ./app_main.c
+        - file: ./video_functions.c
+
+  layers:
+    - layer: $Board-Layer$
+      type: Board

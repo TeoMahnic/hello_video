@@ -1,0 +1,31 @@
+# A solution is a collection of related projects that share same base configuration.
+solution:
+  created-for: CMSIS-Toolbox@2.6.0
+
+  compiler: AC6
+
+  # List the packs that define the device and/or board.
+  packs:
+    - pack: ARM::CMSIS
+
+  # List different hardware targets that are used to deploy the solution.
+  target-types:
+    - type: AppKit
+      board: Alif Semiconductor::AppKit-E7:Gen 2
+      device: Alif Semiconductor::AE722F80F55D5LS:M55_HE
+      # variables:
+        # - Board-Layer: $SolutionDir()$/Board/AppKit-E7/Board.clayer.yml
+
+  # List of different build configurations.
+  build-types:
+    - type: Debug
+      debug: on
+      optimize: none
+
+    - type: Release
+      debug: off
+      optimize: balanced
+
+  # List related projects.
+  projects:
+    - project: video/video.cproject.yml
